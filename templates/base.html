@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block head_title %} Peahead {% endblock head_title %}</title>
+    {% include 'snippets/css.html' %}
+</head>
+<body>
+
+
+<div class="container">
+
+    <h1>Peahead</h1>
+
+    {% include 'snippets/nav.html' %}
+
+    {% block nav_2 %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock content %}
+
+</div>
+
+{% include 'snippets/js.html' %}
+
+</body>
+</html>
