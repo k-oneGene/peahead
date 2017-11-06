@@ -11,6 +11,6 @@ from django.urls import reverse
 
 
 class Selfdata_main(TemplateView):
-    template_name =  "selfdata_main.html"
+    template_name = "selfdata_main.html"
     # def get(self, request, *args, **kwargs):
     #     return render(request, )

@@ -20,5 +20,5 @@ from .views import (
 
 
 urlpatterns = [
-    url(r'^$', Selfdata_main.as_view(), name='selfdata_main'),
+    url(r'^$', Selfdata_main.as_view(), name='main'),
 ]
