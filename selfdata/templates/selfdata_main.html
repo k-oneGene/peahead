@@ -1,8 +1,17 @@
 {% extends "base_sd.html" %}
+{% load static %}
 
 {% block head_title %} Self Data || {{ block.super }}{% endblock %}
 
 {% block content %}
     <h1>Welcome to Self Data (Main). </h1>
     <h2>Keeping tracking of your health</h2>
+
+    <img src="{% static "google_fit_2017-10-04_to_2017-08-01_a01.png" %}">
+
+    <img src="{% static "weight.png" %}" alt="My weight"/>
+
+
+
+
 {% endblock %}

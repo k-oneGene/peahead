@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from .views import (
-    Selfdata_main
+    Selfdata_main,
+    Selfdata_detail
 )
 
 
 urlpatterns = [
     url(r'^$', Selfdata_main.as_view(), name='main'),
+    url(r'^(?P<slug>[\w-]+)/$', Selfdata_detail.as_view(), name='detail'),
 ]
