@@ -209,7 +209,7 @@ def plot_monthly(series_dates, series_record, tbl_name, start_date, end_date, st
         file_date_start = datetime.datetime.strftime(series_dates.iloc[0], '%Y-%m-%d')
         file_date_end = datetime.datetime.strftime(series_dates.iloc[len(series_dates)-1], '%Y-%m-%d')
 
-        fil_name = '{}_{}_to_{}_a01.png'.format(tbl_name, file_date_start, file_date_end)
+        # fil_name = '{}_{}_to_{}_a01.png'.format(tbl_name, file_date_start, file_date_end)
         # print(fil_name)
         # plt.savefig(fil_name)
         sav_name = tbl_name_web_temp[tbl_name]

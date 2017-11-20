@@ -1,0 +1,42 @@
+{% extends "base_sd.html" %}
+{% load static %}
+
+{% block head_title %} Self Data || {{ block.super }}{% endblock %}
+
+{% block content %}
+    <h1><small>My</small> Week Between</h1>
+    <h6>Your stats in a glance</h6>
+
+    <div class="row">
+        <div class="col-sm-6 text-center">
+            {% if q_week is None %}
+                <h3><strong>This week so far...</strong></h3>
+            {% else %}
+                <h3>Week <br> <strong>{{ week }}</strong> <small>to</small> <strong>{{ week_end }}</strong></h3>
+            {% endif %}
+        </div>
+    </div>
+
+    {% include "snippets/dashboard_weekly.html" %}
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="text-center">
+                <form class="form" method="GET">
+                    Between
+                    <input type="week" name="q_week" value="{{ q_week }}" required> -
+                    <input type="week" name="q_week_end" value="{{ q_week_end }}" required>
+                    <button class="btn" type="submit">Find</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="text-center">
+                <p><small>{{ week_num_now }}</small></p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

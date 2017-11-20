@@ -16,11 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from .views import (
     Selfdata_main,
-    Selfdata_detail
+    Selfdata_detail,
+    Selfdata_dashboard,
+    Selfdata_dashboard_week,
+    Selfdata_dashboard_week_2
 )
 
 
 urlpatterns = [
     url(r'^$', Selfdata_main.as_view(), name='main'),
-    url(r'^(?P<slug>[\w-]+)/$', Selfdata_detail.as_view(), name='detail'),
+    url(r'^dashboard/$', Selfdata_dashboard.as_view(), name='dashboard'),
+    url(r'^dashboard/week/$', Selfdata_dashboard_week.as_view(), name='dashboard_week'),
+    url(r'^dashboard/week2/$', Selfdata_dashboard_week_2.as_view(), name='dashboard_week_2'),
+    url(r'^detail/(?P<slug>[\w-]+)$', Selfdata_detail.as_view(), name='detail'),
 ]
