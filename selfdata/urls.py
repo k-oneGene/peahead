@@ -19,7 +19,9 @@ from .views import (
     Selfdata_detail,
     Selfdata_dashboard,
     Selfdata_dashboard_week,
-    Selfdata_dashboard_week_2
+    Selfdata_dashboard_week_2,
+    Selfdata_dashboard_month,
+    Selfdata_dashboard_month_2
 )
 
 
@@ -28,5 +30,7 @@ urlpatterns = [
     url(r'^dashboard/$', Selfdata_dashboard.as_view(), name='dashboard'),
     url(r'^dashboard/week/$', Selfdata_dashboard_week.as_view(), name='dashboard_week'),
     url(r'^dashboard/week2/$', Selfdata_dashboard_week_2.as_view(), name='dashboard_week_2'),
+    url(r'^dashboard/month/$', Selfdata_dashboard_month.as_view(), name='dashboard_month'),
+    url(r'^dashboard/month2/$', Selfdata_dashboard_month_2.as_view(), name='dashboard_month_2'),
     url(r'^detail/(?P<slug>[\w-]+)$', Selfdata_detail.as_view(), name='detail'),
 ]

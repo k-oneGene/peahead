@@ -1,5 +1,45 @@
 {% extends "base_selfdata_dashboard.html" %}
 
 {% block dash_title %}Dashboard{% endblock %}
+{% block dash_title_sub %}<h6>Your stats in a glance</h6>{% endblock %}
+
+{% block dash_content %}
+
+    <div class="row">
+        <div class="col-sm-6 text-center">
+            {% if q_date is None %}
+                <h3><strong>Today</strong></h3>
+            {% else %}
+                <h3><strong>{{ q_date }}</strong></h3>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 text-center">
+            <div class="thumbnail">
+                <p>Went to bed day before: {{ slept_time }}</p>
+                <p>Started day with sleep of: {{ sleep }} hours</p>
+                <p>Pomodoro: {{ pomodoro }}</p>
+                <p>Weight: {{ weight }} kg</p>
+                <p>Steps: {{ steps }}</p>
+                <p>Mood: {{ mood }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block dash_search %}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="text-center">
+                <form class="form" method="GET">
+                    <input type="date" name="q_date" value="{{ q_date }}">
+                    <button class="btn" type="submit">Get</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
 {% load static %}

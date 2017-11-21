@@ -1,16 +1,16 @@
 {% extends "base_selfdata_dashboard.html" %}
 
-{% block dash_title %}Weeks Between{% endblock %}
-{% block dash_title_sub %}<h6>Your weeks stats</h6>{% endblock %}
+{% block dash_title %}Month{% endblock %}
+{% block dash_title_sub %}<h6>Your month stats</h6>{% endblock %}
 
 {% block dash_content %}
 
     <div class="row">
         <div class="col-sm-6 text-center">
             {% if q_week is None %}
-                <h3><strong>This week so far...</strong></h3>
+                <h3><strong>This Month so far...</strong></h3>
             {% else %}
-                <h3>Week <br> <strong>{{ week }}</strong> <small>to</small> <strong>{{ week_end }}</strong></h3>
+                <h3>Month <br> <strong>{{ week }}</strong> <small>to</small> <strong>{{ week_end }}</strong></h3>
             {% endif %}
         </div>
     </div>
@@ -23,9 +23,7 @@
         <div class="col-sm-6">
             <div class="text-center">
                 <form class="form" method="GET">
-                    Between
-                    <input type="week" name="q_week" value="{{ q_week }}" required> -
-                    <input type="week" name="q_week_end" value="{{ q_week_end }}" required>
+                    <input type="month" name="q_month" value="{{ q_month }}" required>
                     <button class="btn" type="submit">Find</button>
                 </form>
             </div>
