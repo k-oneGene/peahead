@@ -7,10 +7,10 @@
 
     <div class="row">
         <div class="col-sm-6 text-center">
-            {% if q_week is None %}
-                <h3><strong>This Month so far...</strong></h3>
+            {% if q_month is None %}
+                <h3><strong>Month</strong></h3>
             {% else %}
-                <h3>Month <br> <strong>{{ week }}</strong> <small>to</small> <strong>{{ week_end }}</strong></h3>
+                <h3><strong>{{ q_month }}</strong></h3>
             {% endif %}
         </div>
     </div>
@@ -26,13 +26,6 @@
                     <input type="month" name="q_month" value="{{ q_month }}" required>
                     <button class="btn" type="submit">Find</button>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="text-center">
-                <p><small>{{ week_num_now }}</small></p>
             </div>
         </div>
     </div>
