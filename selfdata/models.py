@@ -10,16 +10,21 @@ from __future__ import unicode_literals
 from django.db import models
 from datetime import datetime
 
-from django.db.models import Func, F, Count, Avg
-from django.db.models.expressions import RawSQL
-# import datetime
 
 # For now to get it working instead of using today's or yesterday's date
 def default_date():
-    return datetime(2017, 9, 13)
+    now = datetime.now()
+    now_fixed = datetime(now.year, now.month, now.day)
+    return now_fixed
 
 def default_week():
-    return "2017-W35"
+    now = datetime.now()
+    if now.isocalendar()[1] < 10:
+        q_week = str(now.isocalendar()[0]) + '-W0' + str(now.isocalendar()[1])
+    else:
+        q_week = str(now.isocalendar()[0]) + '-W' + str(now.isocalendar()[1])
+
+    return q_week
 
 class DjangoMigrations(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
@@ -294,6 +299,8 @@ class Sleep(models.Model):
         if q_date == None:
             q_date = default_date()
         sleep = self.objects.filter(date__contains=q_date)
+        print(q_date)
+
         if sleep.exists():
             sleep_value = sleep.get().sleep_time.time()
             print(type(sleep_value))

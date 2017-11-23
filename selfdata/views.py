@@ -86,7 +86,6 @@ class Selfdata_dashboard_week(TemplateView):
         return context
 
 
-
 class Selfdata_dashboard_week_2(TemplateView):
     template_name = "selfdata_dashboard_week_2.html"
 

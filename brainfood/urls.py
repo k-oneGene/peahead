@@ -15,10 +15,26 @@ Including another URLconf
 """
 from django.conf.urls import url
 from .views import (
-    Brainfood_main
+    Brainfood_main,
+    Quotes_main,
+    TrustTP_main,
+    QuotesCreateView,
+    QuotesListView,
+    QuotesToday,
+    QuotesRandom,
+    QuotesUpdateView
 )
 
 
 urlpatterns = [
     url(r'^$', Brainfood_main.as_view(), name='main'),
+    url(r'^quotes/$', Quotes_main.as_view(), name='quotes_main'),
+    url(r'^quotes/create$', QuotesCreateView.as_view(), name='quotes_create'),
+    url(r'^quotes/today$', QuotesToday.as_view(), name='quotes_today'),
+    url(r'^quotes/all$', QuotesListView.as_view(), name='quotes_all'),
+    url(r'^quotes/random$', QuotesRandom.as_view(), name='quotes_random'),
+    url(r'^quotes/edit/(?P<pk>\d+)/$', QuotesUpdateView.as_view(), name='quotes_edit'),
+
+    url(r'^trust/$', TrustTP_main.as_view(), name='trustTP_main'),
+
 ]

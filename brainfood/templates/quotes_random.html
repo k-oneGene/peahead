@@ -1,0 +1,21 @@
+{% extends "base_bf.html" %}
+
+{% block head_title %} Brain Food || {{ block.super }}{% endblock %}
+
+{% block content %}
+    {% block bf_title %}<h1><small>Random </small>Quote</h1>{% endblock %}
+    {% block bf_title_sub %}Words that touch your soul{% endblock %}
+
+    {% block bf_content %}
+
+            {% if quote %}
+                <blockquote class="blockquote">
+                    <p class="mb-0">{{ quote.quote }}</p>
+                    <footer class="blockquote-footer">{{ quote.name }}</footer>
+                </blockquote>
+            {% else %}
+                <h1><a href='{% url "brainfood:quotes_create" %}'>Add your first quote</a></h1>
+            {% endif %}
+
+    {% endblock %}
+{% endblock %}

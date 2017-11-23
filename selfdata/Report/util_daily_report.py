@@ -41,7 +41,7 @@ def df_with_query(table, date_name, start_date, end_date):
     return df
 
 # Currently latest plot_monthly. 14-Aug-20176
-# x, y, table name, style (e.g ggplot), save (png to hard drive)
+# x, y, table name, style (e.g ggplot, fivethirtyeight), save (png to hard drive)
 def plot_monthly(series_dates, series_record, tbl_name, start_date, end_date, style='fivethirtyeight', save=True):
 
     series_dates = pd.to_datetime(series_dates, format="%Y-%m-%d %H:%M:%S")
