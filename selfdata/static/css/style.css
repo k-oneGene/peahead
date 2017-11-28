@@ -4,14 +4,23 @@
 
 
 h1 {
-    color: maroon;
+    /*color: maroon;*/
+}
+
+h1 small {
+    /*color: #f9f9f9;*/
 }
 
 
 body{
 
-    font-family:'Kalam',cursive;
-    /*font-family: 'Source Code Pro', monospace;*/
+    font-family: 'Passion One', cursive;
+
+    /*background-color: #1abc9c; !* Green *!*/
+    background-color: #474e5d;
+    color: #f9f9f9;
+
+
     /*Sans-serif*/
     /*font-family: 'Open Sans', sans-serif;*/
 }
@@ -47,19 +56,17 @@ body{
     box-sizing: border-box;
 }
 
+.dash_box .header {
+    font-size: 1em;
+}
 
-/*.dash_box .header {*/
-/*font-size: 1.5em;*/
-/*background: rgba(255,255,255,0.2);*/
-/*color: rgba(255,255,255,0.9);*/
-/*height: 45px;*/
-/*top: 0px;*/
-/*left: -2px;*/
-/*width: 100%;*/
-/*position: absolute;*/
-
-/*}*/
-
+.dash_box .dash_text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 2em;
+}
 
 
 
@@ -216,17 +223,6 @@ body{
     color: #fff;
 }
 
-.dash_ {
-
-}
-
-.dash_text {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-
-}
 
 
 
@@ -240,72 +236,3 @@ body{
 
 /* Circle stats
 =================================================================== */
-
-.circleStats {text-align: center; position: relative;}
-
-.circleStatsItemBox {
-    position: relative;
-    background: #67C2EF;
-    width:100%;
-    min-width: 130px;
-    height: 160px;
-    padding-top: 40px;
-    margin-bottom: 28px;
-}
-
-.circleStatsItemBox .header {
-    background: rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.9);
-    width: 100%;
-    height: 20px;
-    padding: 5px 0px;
-    position: absolute;
-    top: 0px;
-}
-
-.circleStatsItemBox .footer {
-    background: rgba(0,0,0,0.1);
-    color: rgba(255,255,255,0.9);
-    width: 100%;
-    height: 20px;
-    padding: 5px 0px;
-    position: absolute;
-    bottom: 0px;
-}
-
-.circleStatsItemBox .footer .count{
-    font-size: 12px;
-}
-
-.circleStatsItemBox .footer .value{
-    font-weight: bold;
-}
-
-.circleStatsItemBox .percent {
-    font-size: 12px;
-    position: absolute;
-    top:110px;
-    width: 100%;
-    left: 0px;
-    text-align: center;
-    color: rgba(255,255,255,0.9);
-}
-
-.circleStatsItemBox input {
-    cursor: default;
-    box-shadow: none;
-    border:none;
-    height: auto;
-    position: absolute;
-    top:30px;
-    padding: 5px 0px  ;
-    border-color: rgba(0, 0, 0, 0.8);
-}
-
-.circleStatsItemBox input:focus {
-    outline: 0;
-    outline: thin dotted 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-}

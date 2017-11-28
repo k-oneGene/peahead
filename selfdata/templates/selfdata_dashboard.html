@@ -15,49 +15,47 @@
         </div>
     </div>
 
-    <div class="row dash_row">
-        <div class="col-sm-4 text-center ">
+    <div class="row ">
+        <div class="col-sm-4 col-xs-6 text-center ">
             <div class="thumbnail dash_box dash_red" >
                 <div class="header">Pomodoro</div>
-{#                <p>Pomodoro</p>#}
                 <div class="dash_text" >{{ pomodoro }}</div>
             </div>
         </div>
-        <div class="col-sm-4 text-center">
+        <div class="col-sm-4 col-xs-6 text-center">
             <div class="thumbnail dash_box dash_blue">
                 <div class="header">Previous Bed time</div>
                 <div class="dash_text">{{ slept_time }}</div>
             </div>
         </div>
-        <div class="col-sm-4 text-center">
+        <div class="col-sm-4 col-xs-6 text-center">
             <div class="thumbnail dash_box dash_purple">
                 <div class="header">Mood</div>
                 <div class="dash_text">{{ mood }}</div>
             </div>
         </div>
-    </div>
-
-    <div class="row dash_row">
-        <div class="col-sm-4 text-center ">
+{#    </div>#}
+{##}
+{#    <div class="row ">#}
+        <div class="col-sm-4 col-xs-6 text-center ">
             <div class="thumbnail dash_box dash_greenLight">
                 <div class="header">Weight</div>
-                <div class="dash_text">Weight: {{ weight }} kg</div>
+                <div class="dash_text">{{ weight }} <small>kg</small></div>
             </div>
         </div>
-        <div class="col-sm-4 text-center">
+        <div class="col-sm-4 col-xs-6 text-center">
             <div class="thumbnail dash_box dash_orange">
                 <div class="header">Previous Sleep</div>
-                <div class="dash_text">{{ sleep }} hours</div>
+                <div class="dash_text">{{ sleep }} <small>hours</small></div>
             </div>
         </div>
-        <div class="col-sm-4 text-center ">
+        <div class="col-sm-4 col-xs-6 text-center ">
             <div class="thumbnail dash_box dash_yellow">
                 <div class="header">Steps</div>
                 <div class="dash_text">{{ steps }}</div>
             </div>
         </div>
     </div>
-
 
 
 {#    ALL - Old#}
@@ -77,7 +75,7 @@
 
 {% block dash_search %}
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-6">
+        <div class="col-sm-6 col-sm-offset-6 col-xs-12">
             <div class="pull-right">
                 <form class="form-inline" method="GET">
                     <input type="date" class="form-control" name="q_date" value="{{ q_date }}">

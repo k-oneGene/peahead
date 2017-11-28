@@ -13,6 +13,9 @@
                     <p class="mb-0">{{ quote.quote }}</p>
                     <footer class="blockquote-footer">{{ quote.name }}</footer>
                 </blockquote>
+
+                <button class="btn" onclick="refreshPage()">Refresh</button>
+
             {% else %}
                 <h1><a href='{% url "brainfood:quotes_create" %}'>Add your first quote</a></h1>
             {% endif %}

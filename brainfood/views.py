@@ -5,6 +5,8 @@ from django.urls import reverse
 from .models import Quotes
 from .forms import QuotesForm
 
+import requests, json
+
 # Create your views here.
 
 class Brainfood_main(TemplateView):
@@ -44,6 +46,25 @@ class QuotesRandom(TemplateView):
         context = super(QuotesRandom, self).get_context_data(**kwargs)
         quotes = Quotes()
         context['quote'] = quotes.get_random()
+
+        return context
+
+
+class QuotesRandom_ext(TemplateView):
+    template_name = 'quotes_random.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(QuotesRandom_ext, self).get_context_data(**kwargs)
+
+        url = 'https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en'
+        r = requests.get(url)
+        try:
+            quote_json = r.json()
+        except:
+            new_r = r.text.replace("\\", "")
+            quote_json = json.loads(new_r)
+        quotes = Quotes(name=quote_json['quoteAuthor'], quote=quote_json['quoteText'])
+        context['quote'] = quotes
 
         return context
 
