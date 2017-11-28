@@ -3,18 +3,14 @@
 {% block head_title %} {{ block.super }}{% endblock %}
 
 {% block nav_2 %}
-    <br>
     {% include "snippets/nav_bf.html" %}
 {% endblock %}
 
 {% block content %}
-
     <h1><small>My</small> {% block bf_title %}{% endblock %}</h1>
     <h6>{% block bf_title_sub %}{% endblock %}</h6>
 
     {% block bf_content %}
     {% endblock %}
-
-
 {% endblock %}
 

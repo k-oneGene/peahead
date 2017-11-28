@@ -1,9 +1,10 @@
-{% extends "base_sd.html" %}
+{% extends "base_sd_dash.html" %}
 {% load static %}
 
 {% block head_title %} Self Data || {{ block.super }}{% endblock %}
 
 {% block content %}
+
     <h1><small>My</small> {% block dash_title %}{% endblock %}</h1>
     {% block dash_title_sub %}{% endblock %}
 

@@ -1,11 +1,7 @@
-<div class="">
-    <a href="{% url 'brainfood:quotes_main' %}">Quotes </a>||
-    <a href="{% url 'brainfood:quotes_today' %}">Today's </a>|
-    <a href="{% url 'brainfood:quotes_random' %}">Random </a>|
-    <a href="{% url 'brainfood:quotes_all' %}">All </a>||
-    <a href="{% url 'brainfood:quotes_create' %}">Create </a>|
-    <br>
-    <a href="{% url 'brainfood:trustTP_main' %}">Trust The Process </a>||
-    <a href="#">Create </a>|
-    <a href="#">Edit </a>|
-</div>
+<ul class="nav nav-tabs">
+    <li role="presentation" class=""><a href="{% url 'brainfood:quotes_main' %}">Quotes </a></li>
+    <li role="presentation"><a href="{% url 'brainfood:quotes_today' %}">Today's </a></li>
+    <li role="presentation"><a href="{% url 'brainfood:quotes_random' %}">Random </a></li>
+    <li role="presentation"><a href="{% url 'brainfood:quotes_create' %}">Create </a></li>
+    <li role="presentation"><a href="{% url 'brainfood:trustTP_main' %}">(Trust The Process) </a></li>
+</ul>

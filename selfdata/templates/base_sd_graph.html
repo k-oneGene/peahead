@@ -1,10 +1,10 @@
 {% extends "base_sd.html" %}
-{% load static %}
 
-{% block head_title %} Self Data || {{ block.super }}{% endblock %}
+{% block head_title %} {{ block.super }}{% endblock %}
 
 {% block nav_2 %}
     {{ block.super }}
+    {% include "snippets/nav_sd_graph.html" %}
 {% endblock %}
 
 {% block content %}

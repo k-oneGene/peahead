@@ -1,13 +1,14 @@
-<div class="">
-    <a href="{% url 'home' %}">Home</a>  ||
-    <a href="{% url 'selfdata:main' %}">Self Data </a>|
-    <a href="{% url 'brainfood:main' %}">Brain Food </a>|
-    <a href="{% url 'about' %}">About </a>|
-    <a href="{% url 'contact' %}">Contact </a>|
-{#    {% if request.user.is_authenticated %}#}
-{#    <a href="{% url 'restaurants:list' %}">Restaurants</a>#}
-{#    <a href="{% url 'restaurants:create' %}">Add</a>#}
-{#    <a href="{% url 'menus:list' %}">Menus</a>#}
-{#    <a href="{% url 'menus:create' %}">Create Item</a>#}
-{#    {% endif %}#}
-</div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="nav-header">
+            <a class="navbar-brand" href="{% url 'home' %}">Peahead</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'selfdata:main' %}">Self Data </a></li>
+            <li><a href="{% url 'brainfood:main' %}">Brain Food </a></li>
+            <li><a href="{% url 'about' %}">About </a></li>
+            <li><a href="{% url 'contact' %}">Contact </a></li>
+        </ul>
+    </div>
+</nav>

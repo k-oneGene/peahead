@@ -24,6 +24,7 @@ class QuotesListView(ListView):
     template_name = 'quotes_list.html'
 
 
+# When I have user model use "Last logged in date == Today, don't change. Else new quote.
 class QuotesToday(TemplateView):
     template_name = 'quotes_today.html'
 

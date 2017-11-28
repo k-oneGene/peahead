@@ -1,0 +1,311 @@
+/*******************/
+/* Whole html edit */
+/*******************/
+
+
+h1 {
+    color: maroon;
+}
+
+
+body{
+
+    font-family:'Kalam',cursive;
+    /*font-family: 'Source Code Pro', monospace;*/
+    /*Sans-serif*/
+    /*font-family: 'Open Sans', sans-serif;*/
+}
+
+
+.main_content {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.main_content > h6 {
+    margin-left: 5.3rem;
+    margin-right: 0.5rem;
+}
+
+
+
+/*******************/
+/* Dashboard boxes */
+/*******************/
+
+
+
+.dash_row {
+    height: 200px;
+}
+
+/* Dashboard boxes */
+
+
+.dash_box {
+    height: 160px;
+    box-sizing: border-box;
+}
+
+
+/*.dash_box .header {*/
+/*font-size: 1.5em;*/
+/*background: rgba(255,255,255,0.2);*/
+/*color: rgba(255,255,255,0.9);*/
+/*height: 45px;*/
+/*top: 0px;*/
+/*left: -2px;*/
+/*width: 100%;*/
+/*position: absolute;*/
+
+/*}*/
+
+
+
+
+
+
+/*.dash_box p {*/
+    /*font-size: 30px;*/
+    /*background-color:#0094ff;*/
+/*}*/
+
+
+.dash_red {
+    background: #E25A59;
+    border-color: #E25A59;
+    color: #fff;
+
+    background-image: url('image/widget-pomo.svg');
+    background-position: center 95%;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    fill: blue;
+}
+
+
+.dash_blue:before{
+    content: "\f236";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    /*text-align: center;*/
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /*color:black;*/
+}
+.dash_blue {
+    background: #578EBE  ;
+    border-color: #578EBE  ;
+    color: #fff;
+}
+
+
+.dash_purple:before{
+    content: "\f118";
+    font-family: FontAwesome;
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dash_purple {
+    background: #8674A6  ;
+    border-color: #8674A6  ;
+    color: #fff;
+}
+
+
+.dash_black {
+    background: #222  ;
+    border-color: #222  ;
+    color: #fff;
+}
+
+.dash_green {
+    background: #43B5AD  ;
+    border-color: #43B5AD  ;
+    color: #fff;
+}
+
+.dash_greenDark {
+    background: #1E7145  ;
+    border-color: #1E7145  ;
+    color: #fff;
+}
+
+.dash_greenLight:before{
+    content: "\f004";
+    font-family: FontAwesome;
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dash_greenLight {
+    background: #99B433  ;
+    border-color: #99B433  ;
+    color: #fff;
+}
+
+.dash_pink {
+    background: #8674A6  ;
+    border-color: #8674A6  ;
+    color: #fff;
+}
+
+.dash_pinkDark {
+    background: #7E3878  ;
+    border-color: #7E3878  ;
+    color: #fff;
+}
+
+.dash_yellow:before{
+    content: "\f29b";
+    font-family: FontAwesome;
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dash_yellow {
+    background: #DEB948  ;
+    border-color: #DEB948  ;
+    color: #fff;
+}
+
+.dash_blueDark {
+    background: #2B5797  ;
+    border-color: #2B5797  ;
+    color: #fff;
+}
+
+.dash_blueLight {
+    background: #EFF4FF  ;
+    border-color: #EFF4FF  ;
+    color: #fff;
+}
+
+.dash_orange:before{
+    content: "\f241";
+    font-family: FontAwesome;
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dash_orange {
+    background: #E3A21A  ;
+    border-color: #E3A21A  ;
+    color: #fff;
+}
+
+.dash_orangeDark {
+    background: #DA532C  ;
+    border-color: #DA532C  ;
+    color: #fff;
+}
+
+.dash_ {
+
+}
+
+.dash_text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+
+
+
+
+
+
+
+/*From demo*/
+
+
+/* Circle stats
+=================================================================== */
+
+.circleStats {text-align: center; position: relative;}
+
+.circleStatsItemBox {
+    position: relative;
+    background: #67C2EF;
+    width:100%;
+    min-width: 130px;
+    height: 160px;
+    padding-top: 40px;
+    margin-bottom: 28px;
+}
+
+.circleStatsItemBox .header {
+    background: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
+    width: 100%;
+    height: 20px;
+    padding: 5px 0px;
+    position: absolute;
+    top: 0px;
+}
+
+.circleStatsItemBox .footer {
+    background: rgba(0,0,0,0.1);
+    color: rgba(255,255,255,0.9);
+    width: 100%;
+    height: 20px;
+    padding: 5px 0px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.circleStatsItemBox .footer .count{
+    font-size: 12px;
+}
+
+.circleStatsItemBox .footer .value{
+    font-weight: bold;
+}
+
+.circleStatsItemBox .percent {
+    font-size: 12px;
+    position: absolute;
+    top:110px;
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+}
+
+.circleStatsItemBox input {
+    cursor: default;
+    box-shadow: none;
+    border:none;
+    height: auto;
+    position: absolute;
+    top:30px;
+    padding: 5px 0px  ;
+    border-color: rgba(0, 0, 0, 0.8);
+}
+
+.circleStatsItemBox input:focus {
+    outline: 0;
+    outline: thin dotted 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}

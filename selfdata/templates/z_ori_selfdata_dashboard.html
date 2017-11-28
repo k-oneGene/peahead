@@ -1,11 +1,9 @@
-{% extends "base_sd.html" %}
-{% load static %}
+{% extends "base_selfdata_dashboard.html" %}
 
-{% block head_title %} Self Data || {{ block.super }}{% endblock %}
+{% block dash_title %}Dashboard{% endblock %}
+{% block dash_title_sub %}<h6>Your stats in a glance</h6>{% endblock %}
 
-{% block content %}
-    <h1><small>My</small> Dashboard</h1>
-    <h6>Your stats in a glance</h6>
+{% block dash_content %}
 
     <div class="row">
         <div class="col-sm-6 text-center">
@@ -17,7 +15,7 @@
         </div>
     </div>
 
-        <div class="row">
+    <div class="row">
         <div class="col-sm-6 text-center">
             <div class="thumbnail">
                 <p>Went to bed day before: {{ slept_time }}</p>
@@ -29,21 +27,19 @@
             </div>
         </div>
     </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="text-center">
-                    <form class="form" method="GET">
-                        <input type="date" name="q_date" value="{{ q_date }}">
-                        <button class="btn" type="submit">Get</button>
-                    </form>
-                </div>
+{% endblock %}
+
+{% block dash_search %}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="text-center">
+                <form class="form" method="GET">
+                    <input type="date" name="q_date" value="{{ q_date }}">
+                    <button class="btn" type="submit">Get</button>
+                </form>
+            </div>
         </div>
     </div>
-
-{#    <div class="row">#}
-{#        <div class="col-sm-3" style="background-color:lavender;">.col-sm-3</div>#}
-{#        <div class="col-sm-6" style="background-color:lavenderblush;">.col-sm-6</div>#}
-{#        <div class="col-sm-3" style="background-color:lavender;">.col-sm-3</div>#}
-{#    </div>#}
-
 {% endblock %}
+
+{% load static %}

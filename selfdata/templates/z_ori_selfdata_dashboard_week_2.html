@@ -8,7 +8,7 @@
     <h6>Your stats in a glance</h6>
 
     <div class="row">
-        <div class="col-sm-6 text-center">
+        <div class="col-sm-6">
             {% if q_week is None %}
                 <h3><strong>This week so far...</strong></h3>
             {% else %}
@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    {% include "snippets/dashboard_weekly.html" %}
+    {% include "snippets/dashboard_widgets.html" %}
 
     <div class="row">
         <div class="col-sm-6">

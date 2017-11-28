@@ -6,7 +6,7 @@
 {% block dash_content %}
 
     <div class="row">
-        <div class="col-sm-6 text-center">
+        <div class="col-sm-6 ">
             {% if q_month is None %}
                 <h3><strong>Month</strong></h3>
             {% else %}
@@ -15,15 +15,15 @@
         </div>
     </div>
 
-    {% include "snippets/dashboard_weekly.html" %}
+    {% include "snippets/dashboard_widgets.html" %}
 {% endblock %}
 
 {% block dash_search %}
     <div class="row">
-        <div class="col-sm-6">
-            <div class="text-center">
-                <form class="form" method="GET">
-                    <input type="month" name="q_month" value="{{ q_month }}" required>
+        <div class="col-sm-6 col-sm-offset-6">
+            <div class="pull-right">
+                <form class="form-inline" method="GET">
+                    <input type="month" class="form-control" name="q_month" value="{{ q_month }}" required>
                     <button class="btn" type="submit">Find</button>
                 </form>
             </div>

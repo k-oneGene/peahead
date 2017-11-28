@@ -6,7 +6,7 @@
 {% block dash_content %}
 
     <div class="row">
-        <div class="col-sm-6 text-center">
+        <div class="col-sm-3">
             {% if q_date is None %}
                 <h3><strong>Today</strong></h3>
             {% else %}
@@ -15,31 +15,84 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-6 text-center">
-            <div class="thumbnail">
-                <p>Went to bed day before: {{ slept_time }}</p>
-                <p>Started day with sleep of: {{ sleep }} hours</p>
-                <p>Pomodoro: {{ pomodoro }}</p>
-                <p>Weight: {{ weight }} kg</p>
-                <p>Steps: {{ steps }}</p>
-                <p>Mood: {{ mood }}</p>
+    <div class="row dash_row">
+        <div class="col-sm-4 text-center ">
+            <div class="thumbnail dash_box dash_red" >
+                <div class="header">Pomodoro</div>
+{#                <p>Pomodoro</p>#}
+                <div class="dash_text" >{{ pomodoro }}</div>
+            </div>
+        </div>
+        <div class="col-sm-4 text-center">
+            <div class="thumbnail dash_box dash_blue">
+                <div class="header">Previous Bed time</div>
+                <div class="dash_text">{{ slept_time }}</div>
+            </div>
+        </div>
+        <div class="col-sm-4 text-center">
+            <div class="thumbnail dash_box dash_purple">
+                <div class="header">Mood</div>
+                <div class="dash_text">{{ mood }}</div>
             </div>
         </div>
     </div>
+
+    <div class="row dash_row">
+        <div class="col-sm-4 text-center ">
+            <div class="thumbnail dash_box dash_greenLight">
+                <div class="header">Weight</div>
+                <div class="dash_text">Weight: {{ weight }} kg</div>
+            </div>
+        </div>
+        <div class="col-sm-4 text-center">
+            <div class="thumbnail dash_box dash_orange">
+                <div class="header">Previous Sleep</div>
+                <div class="dash_text">{{ sleep }} hours</div>
+            </div>
+        </div>
+        <div class="col-sm-4 text-center ">
+            <div class="thumbnail dash_box dash_yellow">
+                <div class="header">Steps</div>
+                <div class="dash_text">{{ steps }}</div>
+            </div>
+        </div>
+    </div>
+
+
+
+{#    ALL - Old#}
+{#    <div class="row">#}
+{#        <div class="col-sm-6 text-center">#}
+{#            <div class="thumbnail">#}
+{#                <p>Went to bed day before: {{ slept_time }}</p>#}
+{#                <p>Started day with sleep of: {{ sleep }} hours</p>#}
+{#                <p>Pomodoro: {{ pomodoro }}</p>#}
+{#                <p>Weight: {{ weight }} kg</p>#}
+{#                <p>Steps: {{ steps }}</p>#}
+{#                <p>Mood: {{ mood }}</p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 {% endblock %}
 
 {% block dash_search %}
     <div class="row">
-        <div class="col-sm-6">
-            <div class="text-center">
-                <form class="form" method="GET">
-                    <input type="date" name="q_date" value="{{ q_date }}">
+        <div class="col-sm-6 col-sm-offset-6">
+            <div class="pull-right">
+                <form class="form-inline" method="GET">
+                    <input type="date" class="form-control" name="q_date" value="{{ q_date }}">
                     <button class="btn" type="submit">Get</button>
                 </form>
             </div>
         </div>
     </div>
+
+{#  BOOTSTRAP 4 NOTE #}
+{#    For Bootstrap 4, see: https://getbootstrap.com/docs/4.0/utilities/float/#responsive#}
+{##}
+{#    The pull-right command was removed and replaced with float-right or in general to float-{sm,md,lg,xl}-{left,right,none}#}
+{##}
+
 {% endblock %}
 
 {% load static %}
