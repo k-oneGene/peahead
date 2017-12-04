@@ -36,13 +36,10 @@ def df_with_query(table, date_name, start_date, end_date):
     WHERE "{}" BETWEEN date("{}") AND date("{}")
     '''.format(table, date_name, start_date, end_date)
 
-    # print(query)
-
     df = pd.read_sql(query, con=conn)
     return df
 
-# Currently latest plot_monthly. 14-Aug-20176
-# x, y, table name, style (e.g ggplot, fivethirtyeight), save (png to hard drive)
+
 def plot_monthly_old(series_dates, series_record, tbl_name, start_date, end_date, style='seaborn-pastel', save=True):
 
     series_dates = pd.to_datetime(series_dates, format="%Y-%m-%d %H:%M:%S")
