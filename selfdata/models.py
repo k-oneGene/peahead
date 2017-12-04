@@ -61,7 +61,7 @@ class GoogleFit(models.Model):
         query = self.objects.filter(date__contains=q_date)
         steps_value = None
         if query.exists():
-            steps_value = query.get().step_count
+            steps_value = query.first().step_count
         else:
             steps_value = 'x'
 
@@ -111,7 +111,7 @@ class Mood(models.Model):
         mood = self.objects.filter(date__contains=q_date)
         mood_value = None
         if mood.exists():
-            mood_value = mood.get().mood
+            mood_value = mood.first().mood
         else:
             mood_value = 'x'
         return mood_value
@@ -301,7 +301,7 @@ class Sleep(models.Model):
             q_date = default_date()
         sleep = self.objects.filter(date__contains=q_date)
         if sleep.exists():
-            sleep_value = sleep.get().total_hours
+            sleep_value = sleep.first().total_hours
         else:
             sleep_value = 'x'
         return sleep_value
@@ -313,7 +313,7 @@ class Sleep(models.Model):
         print(q_date)
 
         if sleep.exists():
-            sleep_value = sleep.get().sleep_time.time()
+            sleep_value = sleep.first().sleep_time.time()
             print(type(sleep_value))
         else:
             sleep_value = 'x'
@@ -405,7 +405,7 @@ class Weight(models.Model):
         weight = self.objects.filter(date__contains=q_date)
 
         if weight.exists():
-            weight_value = weight.get().weight
+            weight_value = weight.first().weight
         else:
             weight_value = 'x'
         return weight_value

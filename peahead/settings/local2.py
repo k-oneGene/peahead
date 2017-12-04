@@ -139,7 +139,6 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
 
 
-
 # SSL/TLS
 
 CORS_REPLACE_HTTPS_REFERER      = False
