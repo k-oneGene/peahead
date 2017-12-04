@@ -1,0 +1,284 @@
+/*******************/
+/* Whole html edit */
+/*******************/
+
+
+h1 {
+    /*color: maroon;*/
+}
+
+h1 small {
+    color: rgba(214, 214, 214, 0.58);
+}
+
+
+body{
+
+    font-family: 'Passion One', cursive;
+
+    /*background-color: #1abc9c; !* Green *!*/
+    background-color: #474e5d;
+    /*color: #9d9d9d;*/
+    color: #d6d6d6;
+    font-size: medium;
+
+
+
+    /*Sans-serif*/
+    /*font-family: 'Open Sans', sans-serif;*/
+}
+
+
+.main_content {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.main_content > h6 {
+    margin-left: 5.3rem;
+    margin-right: 0.5rem;
+}
+
+
+
+/*******************/
+/* Footer */
+/*******************/
+
+/*.footer {*/
+    /*position: absolute;*/
+    /*bottom: 20px;*/
+    /*!*left: 20vw;*!*/
+    /*!*right: 20vw;*!*/
+    /*width: 100%;*/
+    /*!* Set the fixed height of the footer here *!*/
+    /*height: 60px;*/
+    /*background-color: #848484;*/
+    /*border-radius: 4px;*/
+
+    /*!*margin-left: 10%;*!*/
+    /*!*margin-right: 10%;*!*/
+
+/*}*/
+
+/*.footer > .container {*/
+    /*padding-right: 15px;*/
+    /*padding-left: 15px;*/
+/*}*/
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 100px;
+}
+
+/*******************/
+/* Home Page */
+/*******************/
+
+
+
+.jumbotron {
+    text-align: center;
+    /*border-bottom: 1px solid #e5e5e5;*/
+    color: #474e5d;
+}
+
+/*.jumbotron img {*/
+    /*max-width: 350px;*/
+    /*max-height: 350px;*/
+    /*width: auto;*/
+    /*height: auto;*/
+/*}*/
+
+
+
+/*******************/
+/* Dashboard boxes */
+/*******************/
+
+
+
+.dash_row {
+    height: 200px;
+}
+
+/* Dashboard boxes */
+
+
+.dash_box {
+    height: 200px;
+    width: auto;
+    min-width: 110px;
+    box-sizing: border-box;
+}
+
+.dash_box .header {
+    font-size: 1em;
+}
+
+.dash_box .dash_text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 2em;
+}
+
+
+
+
+
+/*.dash_box p {*/
+    /*font-size: 30px;*/
+    /*background-color:#0094ff;*/
+/*}*/
+
+
+.dash_red {
+    background: #E25A59;
+    border-color: #E25A59;
+    color: #fff;
+
+    background-image: url('image/widget-pomo.svg');
+    background-position: center 95%;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    fill: blue;
+}
+
+
+.dash_blue:before{
+    content: "\f236";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    /*text-align: center;*/
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /*color:black;*/
+}
+.dash_blue {
+    background: #578EBE  ;
+    border-color: #578EBE  ;
+    color: #fff;
+}
+
+
+.dash_purple:before{
+    content: "\f118";
+    font-family: FontAwesome;
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dash_purple {
+    background: #8674A6  ;
+    border-color: #8674A6  ;
+    color: #fff;
+}
+
+
+.dash_black {
+    background: #222  ;
+    border-color: #222  ;
+    color: #fff;
+}
+
+.dash_green {
+    background: #43B5AD  ;
+    border-color: #43B5AD  ;
+    color: #fff;
+}
+
+.dash_greenDark {
+    background: #1E7145  ;
+    border-color: #1E7145  ;
+    color: #fff;
+}
+
+.dash_greenLight:before{
+    content: "\f004";
+    font-family: FontAwesome;
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dash_greenLight {
+    background: #99B433  ;
+    border-color: #99B433  ;
+    color: #fff;
+}
+
+.dash_pink {
+    background: #8674A6  ;
+    border-color: #8674A6  ;
+    color: #fff;
+}
+
+.dash_pinkDark {
+    background: #7E3878  ;
+    border-color: #7E3878  ;
+    color: #fff;
+}
+
+.dash_yellow:before{
+    content: "\f29b";
+    font-family: FontAwesome;
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dash_yellow {
+    background: #DEB948  ;
+    border-color: #DEB948  ;
+    color: #fff;
+}
+
+.dash_blueDark {
+    background: #2B5797  ;
+    border-color: #2B5797  ;
+    color: #fff;
+}
+
+.dash_blueLight {
+    background: #EFF4FF  ;
+    border-color: #EFF4FF  ;
+    color: #fff;
+}
+
+.dash_orange:before{
+    content: "\f241";
+    font-family: FontAwesome;
+    font-size: 3em;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dash_orange {
+    background: #E3A21A  ;
+    border-color: #E3A21A  ;
+    color: #fff;
+}
+
+.dash_orangeDark {
+    background: #DA532C  ;
+    border-color: #DA532C  ;
+    color: #fff;
+}
