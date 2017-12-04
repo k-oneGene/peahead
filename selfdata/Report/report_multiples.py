@@ -25,6 +25,27 @@ def graph_report(start_date, end_date):
         y_axis = tbl_info['y_axis']
         util.plot_monthly(df[date_name], df[y_axis], tbl_name, start_date, end_date)
 
+
+# Takes two dates, and table and draws graph.
+def graph_report_one(start_date, end_date, tbl_name):
+
+    # Configs to Draw
+    tbl_name = daily_config[tbl_name]['tbl_name']
+    date_name = daily_config[tbl_name]['date_name']
+    y_axis = daily_config[tbl_name]['y_axis']
+
+    # Query data and return result as dataframe.
+    df = util.df_with_query(tbl_name, date_name, start_date, end_date)
+
+    # For cases query returned empty, stop error from terminating app.
+    if df.empty:
+        error = "Table: {}, No record for {} - {}".format(tbl_name, start_date, end_date)
+        print(error)
+        return error
+
+    # Draw graph
+    util.plot_monthly(df[date_name], df[y_axis], tbl_name, start_date, end_date)
+
 #==============================================================================================
 
 # Report function other will customize on
@@ -92,4 +113,8 @@ if __name__ == '__main__':
     # graph_report_this_year()
     # graph_report_year(2016, year_lenth=0)
     # graph_report_year(2014, year_lenth=2)
-    graph_report("2017-08-01", "2017-10-05")
+    # graph_report("2017-08-01", "2017-10-05")
+
+    # graph_report_one('2017-04-01', '2017-04-30', 'sleep')
+    # graph_report_one('2017-10-01', '2017-10-31', 'weather_daily')
+    graph_report_one('2017-10-01', '2017-10-31', 'pomo_excel_daily')

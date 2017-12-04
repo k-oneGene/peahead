@@ -5,9 +5,10 @@ from django.urls import reverse
 
 from .models import Mood, Pomodoro, Weight, GoogleFit, Sleep
 
-from selfdata.Report.report_multiples import graph_report
+from selfdata.Report.report_multiples import graph_report, graph_report_one
 
 from .utils import month_to_week
+from .Report.util_report_config import tbl_name_web_temp_rev
 
 import datetime
 from dateutil.relativedelta import relativedelta
@@ -37,8 +38,8 @@ class Selfdata_detail(TemplateView):
         print(kwargs['slug'])
         context['sd_type'] = kwargs['slug'] + '.svg'
         if q_start and q_end:
-            graph_report(q_start, q_end)
-            # run something to get data
+            tbl_name = tbl_name_web_temp_rev[kwargs['slug']]
+            graph_report_one(q_start, q_end, tbl_name)
         return context
 
 

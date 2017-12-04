@@ -275,6 +275,17 @@ class Pomodoro(models.Model):
         return average_value
 
 
+class PomodoroDaily(models.Model):
+    index = models.IntegerField(primary_key=True) #blank=True, null=True
+    date = models.TextField(db_column='Date', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
+    pomo_total = models.FloatField(db_column='pomo_total', blank=True, null=True)
+
+    class Meta:
+        managed = False #Used
+        db_table = 'pomo_excel_daily'
+
+
+
 class Sleep(models.Model):
     index = models.IntegerField(primary_key=True)
     date = models.TextField(db_column='date', blank=True, null=True)  # Field name made lowercase. This field type is a guess.

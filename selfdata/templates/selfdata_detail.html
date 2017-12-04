@@ -7,14 +7,23 @@
 
     <h1> <small>My</small> {{ slug|title }} </h1>
 
-    <form class="form" method="GET">
-    <input type="date" name="q_start">
-    <input type="date" name="q_end">
-    <button class="btn btn-default" type="submit">Draw</button>
-    </form>
+    <div class="row">
+        <div class="col-sm-8">
+            <img src="{% static sd_type %}" class="img-responsive img-rounded " alt="{{ sd_type }}"/>
+        </div>
+    </div>
     <br/>
 
-    <img src="{% static sd_type %}" alt="{{ sd_type }}"/>
-
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="pull-right">
+                <form class="form-inline" method="GET">
+                    <input type="date" class="form-control" name="q_start" value="{{ q_start }}" required> -
+                    <input type="date" class="form-control" name="q_end" value="{{ q_end }}" required>
+                    <button class="btn btn-primary btn-primary" type="submit">Draw</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

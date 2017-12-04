@@ -55,6 +55,14 @@ daily_config = {
             'y_lim_offset': 1,
             'y_lim_offset_percentage': 0.10
         },
+    'pomodoro':
+        {
+            'tbl_name': 'pomodoro',
+            'date_name': 'Date',
+            'y_axis': 'pomodoro',
+            'y_lim_offset': 1,
+            'y_lim_offset_percentage': 0.10
+        },
     'sleep':
         {
             'tbl_name': 'sleep',
@@ -66,19 +74,23 @@ daily_config = {
 }
 
 
-"""
-data_info = {
-    'weather_daily': {
-        'y_axis': 'Temp_mean'
-    },
-    'google_fit': {
-        'y_axis': 'Step count'
-    },
-    'mood': {
-        'y_axis': 'mood'
-    },
-    'weight': {
-        'y_axis': 'Weight'
-    },
+tbl_name_web_temp = {
+    'google_fit': 'steps',
+    'mood': 'mood',
+    'sleep': 'sleep',
+    'weather_daily': 'weather',
+    'weight': 'weight',
+    'pomo_excel_daily': 'pomodoro'
+    #'pomodoro': 'pomodoro'
 }
-"""
+
+tbl_name_web_temp_rev = {
+    'steps': 'google_fit',
+    'mood': 'mood',
+    'sleep': 'sleep',
+    'weather': 'weather_daily',
+    'weight': 'weight',
+    'pomodoro': 'pomo_excel_daily'
+    #'pomodoro': 'pomodoro'
+
+}

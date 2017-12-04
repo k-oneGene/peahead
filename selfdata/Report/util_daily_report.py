@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use('Agg') #TODO: Enable this to make it work for web
 import matplotlib.pyplot as plt
 import datetime
 from matplotlib.dates import date2num
@@ -11,7 +11,7 @@ import seaborn as sns
 from sklearn.linear_model import LinearRegression
 import datetime
 from dateutil import relativedelta
-from selfdata.Report.util_report_config import daily_config
+from selfdata.Report.util_report_config import daily_config, tbl_name_web_temp
 import os
 
 
@@ -42,7 +42,7 @@ def df_with_query(table, date_name, start_date, end_date):
 
 # Currently latest plot_monthly. 14-Aug-20176
 # x, y, table name, style (e.g ggplot, fivethirtyeight), save (png to hard drive)
-def plot_monthly(series_dates, series_record, tbl_name, start_date, end_date, style='fivethirtyeight', save=True):
+def plot_monthly_old(series_dates, series_record, tbl_name, start_date, end_date, style='seaborn-pastel', save=True):
 
     series_dates = pd.to_datetime(series_dates, format="%Y-%m-%d %H:%M:%S")
 
@@ -55,10 +55,6 @@ def plot_monthly(series_dates, series_record, tbl_name, start_date, end_date, st
     # date2 = dates_list[len(dates_list)-1]
 
     # print(dates_list[0])
-
-
-
-
 
     # Best fit line
 
@@ -193,17 +189,6 @@ def plot_monthly(series_dates, series_record, tbl_name, start_date, end_date, st
 
     if save:
 
-        tbl_name_web_temp = {
-            'google_fit': 'steps',
-            'mood': 'mood',
-            'pomo_excel_daily': 'pomodoro',
-            'sleep': 'sleep',
-            'weather_daily': 'weather',
-            'weight': 'weight',
-
-            'pomo_kanban_daily': 'pomo_kanban_daily'
-
-        }
 
         # Format file name to save
         file_date_start = datetime.datetime.strftime(series_dates.iloc[0], '%Y-%m-%d')
@@ -216,6 +201,9 @@ def plot_monthly(series_dates, series_record, tbl_name, start_date, end_date, st
         my_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         print(my_path)
         print(f'saving as {sav_name}')
+
+        # plt.show()
+
         plt.savefig(os.path.join(my_path, 'static', sav_name + '.svg'), format='svg')
         fig.clf()
         plt.clf()
@@ -223,7 +211,166 @@ def plot_monthly(series_dates, series_record, tbl_name, start_date, end_date, st
 
 
 
+def plot_monthly(series_dates, series_record, tbl_name, start_date, end_date, style='fivethirtyeight', save=True):
+
+    series_dates = pd.to_datetime(series_dates, format="%Y-%m-%d %H:%M:%S")
+
+    # date_list is require to create x-axis
+    dates_list = []
+    for i in series_dates:
+        dates_list.append(i)
+
+    # Best fit line
+    df_temp = pd.DataFrame()
+    df_temp['days_since'] = (series_dates - pd.to_datetime(dates_list[0])).astype('timedelta64[D]')
+    lr = LinearRegression()
+    lr.fit(df_temp[['days_since', ]], series_record)
+    predict = lr.predict(df_temp[['days_since', ]])
+
+    # Styling needs to be at top.
+
+    plt.style.use(style)
+
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.serif'] = 'Ubuntu'
+    plt.rcParams['font.monospace'] = 'Ubuntu Mono'
+    plt.rcParams['font.size'] = 10
+    plt.rcParams['axes.labelsize'] = 10
+    plt.rcParams['axes.labelweight'] = 'bold'
+    plt.rcParams['axes.titlesize'] = 18
+    plt.rcParams['axes.titleweight'] = 'bold'
+    plt.rcParams['xtick.labelsize'] = 8
+    plt.rcParams['ytick.labelsize'] = 8
+    plt.rcParams['legend.fontsize'] = 10
+    plt.rcParams['figure.titlesize'] = 12
+
+
+    # Main part
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(dates_list, series_record, c='#DCD6F7', alpha=0.3, linewidth=1.5) #dashes=(1,10), dash_capstyle='round', dash_joinstyle='round'
+
+    # Disabled for better visual
+    ax.scatter(dates_list, series_record, c='#DCD6F7', s=2, alpha=0.8)
+
+    # Best fit average
+    ax.plot(dates_list, predict, c='#A6B1E1', solid_capstyle='round', linewidth=2)
+
+
+
+    # Intelligently scaling x-axis labels
+
+    # Under 1 month
+    if len(series_dates) < 32:
+        days = DayLocator(bymonthday=range(1,31,7)) #, interval=5
+        loc = WeekdayLocator(byweekday=MO)
+        dateFmt_Maj = DateFormatter('\n%a')
+        dateFmt_Min = DateFormatter('%d')
+
+        # format the ticks
+        ax.xaxis.set_major_locator(loc)
+        ax.xaxis.set_major_formatter(dateFmt_Maj)
+        ax.xaxis.set_minor_locator(days)
+        ax.xaxis.set_minor_formatter(dateFmt_Min)
+
+    # If it's under 3 month
+    elif len(series_dates) < 110:
+        days = DayLocator(bymonthday=range(1,31,7)) #, interval=5
+        months = MonthLocator(interval=1)  # every month
+        dateFmt_Maj = DateFormatter('\n%m')
+        dateFmt_Min = DateFormatter('%d')
+
+        # format the ticks
+        ax.xaxis.set_major_locator(months)
+        ax.xaxis.set_major_formatter(dateFmt_Maj)
+        ax.xaxis.set_minor_locator(days)
+        ax.xaxis.set_minor_formatter(dateFmt_Min)
+
+
+    #if it's over 3 month and under year (ish)
+    elif len(series_dates) >= 110 and len(series_dates) < 370:
+        months = MonthLocator(interval=1)  # every month
+        days = DayLocator(bymonthday=range(7,31,7)) #, interval=5
+        dateFmt_Maj = DateFormatter('\n%m')
+        # dateFmt_Min = DateFormatter('%d')
+
+        # format the ticks
+        ax.xaxis.set_major_locator(months)
+        ax.xaxis.set_major_formatter(dateFmt_Maj)
+        ax.xaxis.set_minor_locator(days)
+        # ax.xaxis.set_minor_formatter(dateFmt_Min)
+    else:
+        years = YearLocator()   # every year
+        months = MonthLocator(interval=3)  # every 3 months
+        dateFmt_Maj = DateFormatter('\n%Y')
+        dateFmt_Min = DateFormatter('%m')
+
+        # format the ticks
+        ax.xaxis.set_major_locator(years)
+        ax.xaxis.set_major_formatter(dateFmt_Maj)
+        ax.xaxis.set_minor_locator(months)
+        ax.xaxis.set_minor_formatter(dateFmt_Min)
+
+
+    # Intelligently plot y-axis range
+
+    lim_list = set_min_max_record(tbl_name, series_record.name, start_date, end_date)
+    ax.set_ylim(lim_list)
+
+    # Plot x-range so it shows whole of x-axis instead of streching from where data is available.
+    days = 1 # So edge values of x-axis doesn't get cut.
+    start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
+    start_date = start_date + relativedelta.relativedelta(days=-days)
+    end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
+    end_date = end_date + relativedelta.relativedelta(days=+days)
+
+    ax.set_xlim([start_date, end_date])
+
+
+    # name axis
+    ax.set_xlabel(removeUnderLine(series_dates.name), color='#ffffff')
+    ax.set_ylabel(removeUnderLine(series_record.name), color='#ffffff')
+    # ax.set_title(removeUnderLine(tbl_name), color='#ffffff') #'#B4869F'
+
+    # Final Customization
+    # ax.tick_params(bottom='off', top='off', left='off', right='off')
+    ax.tick_params(axis='x', which='both', colors='white')
+    ax.tick_params(axis='y', which='both', colors='white')
+    for key, spine in ax.spines.items():
+        spine.set_visible(False)
+
+    fig.set_facecolor('#474e5d')
+    ax.set_facecolor('#474e5d')
+
+
+
+    if save:
+        # Format file name to save
+        file_date_start = datetime.datetime.strftime(series_dates.iloc[0], '%Y-%m-%d')
+        file_date_end = datetime.datetime.strftime(series_dates.iloc[len(series_dates)-1], '%Y-%m-%d')
+
+        # fil_name = '{}_{}_to_{}_a01.png'.format(tbl_name, file_date_start, file_date_end)
+        # print(fil_name)
+        # plt.savefig(fil_name)
+        sav_name = tbl_name_web_temp[tbl_name]
+        my_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        print(my_path)
+        print(f'saving as {sav_name}')
+
         # plt.show()
+
+        plt.savefig(os.path.join(my_path, 'static', sav_name + '.svg'), format='svg', facecolor=fig.get_facecolor())
+        # plt.savefig(os.path.join(my_path, 'static', sav_name + '.png'), format='png')
+        fig.clf()
+        plt.clf()
+        plt.close(fig)
+
+
+
+
+
+
 
 # Removes underline and Cap the every word.
 def removeUnderLine(string):
@@ -332,7 +479,7 @@ def find_dates(year, month, month_lenth=0):
 
     return [lim_min-ten_percent, lim_max+ten_percent]
 
-'''
+
 if __name__ == '__main__':
 
     """
@@ -349,8 +496,9 @@ if __name__ == '__main__':
 
     #min_max_record(tbl_name='mood', col='mood')
     #min_max_record(tbl_name='weather_daily', col='Temp_mean')
-    
+    """
 
+    """
     tbl_name = 'mood'
     date_name = 'Date'
     start_date = '2017-01-01'
@@ -358,9 +506,9 @@ if __name__ == '__main__':
     y_axis = 'mood'
 
     df = df_with_query(tbl_name, date_name, start_date, end_date)
-    plot_monthly(df[date_name], df[y_axis], tbl_name, style='ggplot')
-
+    plot_monthly(df[date_name], df[y_axis], tbl_name,start_date,end_date, style='ggplot')
     """
+
 
     """
     tbl_name = 'weight'
@@ -373,7 +521,19 @@ if __name__ == '__main__':
     plot_monthly(df[date_name], df[y_axis], tbl_name, start_date, end_date)
     """
 
+    """
+    tbl_name = daily_config['sleep']['tbl_name']
+    date_name = daily_config['sleep']['date_name']
+    start_date = '2017-04-01'
+    end_date = '2017-04-30'
+    y_axis = daily_config['sleep']['y_axis']
 
+    df = df_with_query(tbl_name, date_name, start_date, end_date)
+    plot_monthly(df[date_name], df[y_axis], tbl_name, start_date, end_date)
+    """
+
+
+    """
     date_name = 'Date'
     start_date = '2017-02-21'
     end_date = '2017-02-28'
@@ -383,7 +543,9 @@ if __name__ == '__main__':
 
     df = df_with_query(tbl_name, date_name, start_date, end_date)
     plot_monthly(df[date_name], df[y_axis], tbl_name, start_date, end_date)
-'''
+    """
 
+"""
 if __name__ == '__main__':
-    print(find_dates(2017, 3, -5))
+    print(find_dates(2017, 3, 1))
+"""

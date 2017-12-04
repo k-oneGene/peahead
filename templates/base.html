@@ -33,21 +33,23 @@
 </head>
 <body>
 
+    <div class="container">
+        <br>
+        {% include 'snippets/nav.html' %}
 
-<div class="container">
-    <br>
-    {% include 'snippets/nav.html' %}
+        {% block nav_2 %}
+        {% endblock %}
 
-    {% block nav_2 %}
-    {% endblock %}
+        <div class="main_content">
+            {% block content %}
+            {% endblock content %}
+        </div>
 
-    <div class="main_content">
-        {% block content %}
-        {% endblock content %}
+{#        <footer class="footer">#}
+{#            <p>By Jin Park</p>#}
+{#        </footer>#}
     </div>
-<BR>
 
-</div>
 
 {% include 'snippets/js.html' %}
 

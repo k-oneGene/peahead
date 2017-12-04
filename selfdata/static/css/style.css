@@ -8,7 +8,7 @@ h1 {
 }
 
 h1 small {
-    /*color: #f9f9f9;*/
+    color: rgba(214, 214, 214, 0.58);
 }
 
 
@@ -18,7 +18,10 @@ body{
 
     /*background-color: #1abc9c; !* Green *!*/
     background-color: #474e5d;
-    color: #f9f9f9;
+    /*color: #9d9d9d;*/
+    color: #d6d6d6;
+    font-size: medium;
+
 
 
     /*Sans-serif*/
@@ -39,6 +42,61 @@ body{
 
 
 /*******************/
+/* Footer */
+/*******************/
+
+/*.footer {*/
+    /*position: absolute;*/
+    /*bottom: 20px;*/
+    /*!*left: 20vw;*!*/
+    /*!*right: 20vw;*!*/
+    /*width: 100%;*/
+    /*!* Set the fixed height of the footer here *!*/
+    /*height: 60px;*/
+    /*background-color: #848484;*/
+    /*border-radius: 4px;*/
+
+    /*!*margin-left: 10%;*!*/
+    /*!*margin-right: 10%;*!*/
+
+/*}*/
+
+/*.footer > .container {*/
+    /*padding-right: 15px;*/
+    /*padding-left: 15px;*/
+/*}*/
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 100px;
+}
+
+/*******************/
+/* Home Page */
+/*******************/
+
+
+
+.jumbotron {
+    text-align: center;
+    /*border-bottom: 1px solid #e5e5e5;*/
+    color: #474e5d;
+}
+
+/*.jumbotron img {*/
+    /*max-width: 350px;*/
+    /*max-height: 350px;*/
+    /*width: auto;*/
+    /*height: auto;*/
+/*}*/
+
+
+
+/*******************/
 /* Dashboard boxes */
 /*******************/
 
@@ -52,7 +110,9 @@ body{
 
 
 .dash_box {
-    height: 160px;
+    height: 200px;
+    width: auto;
+    min-width: 110px;
     box-sizing: border-box;
 }
 
@@ -222,17 +282,3 @@ body{
     border-color: #DA532C  ;
     color: #fff;
 }
-
-
-
-
-
-
-
-
-
-/*From demo*/
-
-
-/* Circle stats
-=================================================================== */
