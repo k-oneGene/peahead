@@ -13,6 +13,7 @@ import datetime
 from dateutil import relativedelta
 from selfdata.Report.util_report_config import daily_config, tbl_name_web_temp
 import os
+from peahead.settings import BASE_DIR
 
 
 # Config related
@@ -201,10 +202,10 @@ def plot_monthly_old(series_dates, series_record, tbl_name, start_date, end_date
         my_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         print(my_path)
         print(f'saving as {sav_name}')
-
-        # plt.show()
-
-        plt.savefig(os.path.join(my_path, 'static', sav_name + '.svg'), format='svg')
+        # plt.savefig(os.path.join(my_path, 'static', sav_name + '.svg'), format='svg')
+        print('new staic produdction loc')
+        print(os.path.join(BASE_DIR, 'static', sav_name + '_qwerty_' +'.svg'))
+        plt.savefig(os.path.join(BASE_DIR, 'static', sav_name + '_qwerty_' +'.svg'), format='svg')
         fig.clf()
         plt.clf()
         plt.close(fig)
@@ -358,10 +359,13 @@ def plot_monthly(series_dates, series_record, tbl_name, start_date, end_date, st
         print(my_path)
         print(f'saving as {sav_name}')
 
-        # plt.show()
 
+        # Use this for production
+        plt.savefig(os.path.join(BASE_DIR, 'static', sav_name + '.svg'), format='svg', facecolor=fig.get_facecolor())
+        # Use this for dev
         plt.savefig(os.path.join(my_path, 'static', sav_name + '.svg'), format='svg', facecolor=fig.get_facecolor())
-        # plt.savefig(os.path.join(my_path, 'static', sav_name + '.png'), format='png')
+
+
         fig.clf()
         plt.clf()
         plt.close(fig)
