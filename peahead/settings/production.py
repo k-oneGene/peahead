@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a_%0ml9tvs=4q!^o2)icvm+3k$4r$uq%ap_)h4xj53%(dun6h3'
+SECRET_KEY = os.environ.get('SECRET_KEY' 'a_%0ml9tvs=4q!^o2)icvm+3k$4r$uq%ap_)h4xj53%(dun6h3')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -78,18 +78,16 @@ WSGI_APPLICATION = 'peahead.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
-
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'selfdata_01.db'),
     }
-
-
 }
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
 
 
 # Password validation
