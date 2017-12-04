@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'a_%0ml9tvs=4q!^o2)icvm+3k$4r$uq%ap_)h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['peahead.herokuapp.com']
 
 
 # Application definition
