@@ -17,10 +17,7 @@ from peahead.settings import BASE_DIR
 
 
 # Config related
-
 file_loc = os.path.join(BASE_DIR, 'selfdata_01.db')
-# file_loc = r'D:\OneDrive\0 My Files\0 System\3 Workspace\PycharmProjects\1 Personal Host Git\1 SelfData\Cleaning\selfdata_01.db'
-
 
 # =====================
 
