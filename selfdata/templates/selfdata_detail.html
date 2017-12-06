@@ -8,14 +8,14 @@
     <h1> <small>My</small> {{ slug|title }} </h1>
 
     <div class="row">
-        <div class="col-sm-8">
-            <img src="{% static sd_type %}" class="img-responsive img-rounded " alt="{{ sd_type }}"/>
+        <div class="col-sm-8 col-lg-8">
+            <img src="{% static sd_type %}" class="img-responsive img-rounded graphs" alt="{{ sd_type }}"/>
         </div>
     </div>
     <br/>
 
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-8 col-lg-7">
             <div class="pull-right">
                 <form class="form-inline" method="GET">
                     <input type="date" class="form-control" name="q_start" value="{{ q_start }}" required> -

@@ -22,7 +22,7 @@ body{
     color: #d6d6d6;
     font-size: medium;
 
-
+    padding-bottom: 20px;
 
     /*Sans-serif*/
     /*font-family: 'Open Sans', sans-serif;*/
@@ -34,8 +34,8 @@ body{
     margin-right: 3rem;
 }
 
-.main_content > h6 {
-    margin-left: 5.3rem;
+.main_content > h4 {
+    margin-left: 3.7rem;
     margin-right: 0.5rem;
 }
 
@@ -128,14 +128,6 @@ body{
     font-size: 2em;
 }
 
-
-
-
-
-/*.dash_box p {*/
-    /*font-size: 30px;*/
-    /*background-color:#0094ff;*/
-/*}*/
 
 
 .dash_red {
@@ -271,6 +263,7 @@ body{
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
 .dash_orange {
     background: #E3A21A  ;
     border-color: #E3A21A  ;
@@ -281,4 +274,46 @@ body{
     background: #DA532C  ;
     border-color: #DA532C  ;
     color: #fff;
+}
+
+
+.graphs {
+    max-height: 500px;
+}
+
+
+
+/*******************/
+/* Contact Me */
+/*******************/
+
+.fa-facebook-square,
+.fa-instagram {
+    transition: color 0.2s;
+}
+
+
+.fa-facebook-square {
+    color: #578EBE;
+}
+
+.fa-instagram {
+    color: #E25A59;
+}
+
+.fa-envelope {
+    color: #DEB948;
+}
+
+
+.fa-facebook-square:hover {
+    color: #5ca4d7;
+}
+
+.fa-instagram:hover {
+    color: #f95d5c;
+}
+
+.fa-envelope:hover {
+    color: #f5ce4f;
 }

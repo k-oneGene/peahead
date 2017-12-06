@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,24 +12,19 @@
     {% include 'snippets/css.html' %}
 
 
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
 
-{#    NOT GOOD #}
-{#    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">#}
-{#    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">#}
-
-
-
-
-
-    {#        <style>#}
-{#            h1 {#}
-{#                color: maroon;#}
-{#                margin-left: 40px;#}
-{#            }#}
-{#        </style>#}
+    <link rel="stylesheet" type="text/css" href="{% static 'favicons/safari-pinned-tab.svg' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicons/manifest.json' %}">
+    <link rel="mask-icon" href="{% static 'favicons/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 
 
 </head>
@@ -45,9 +42,6 @@
             {% endblock content %}
         </div>
 
-{#        <footer class="footer">#}
-{#            <p>By Jin Park</p>#}
-{#        </footer>#}
     </div>
 
 

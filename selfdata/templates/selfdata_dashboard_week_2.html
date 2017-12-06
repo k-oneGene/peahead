@@ -1,7 +1,7 @@
 {% extends "base_selfdata_dashboard.html" %}
 
 {% block dash_title %}Weeks Between{% endblock %}
-{% block dash_title_sub %}<h6>Your weeks stats</h6>{% endblock %}
+{% block dash_title_sub %}<h4>Your weeks stats</h4>{% endblock %}
 
 {% block dash_content %}
 
@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col-sm-6 col-sm-offset-6">
             <div class="pull-right">
-                <p><small>{{ week_num_now }}</small></p>
+                <p><small>Today's week: {{ week_num_now }}</small></p>
             </div>
         </div>
     </div>
