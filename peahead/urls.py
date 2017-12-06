@@ -16,8 +16,11 @@ Including another URLconf
 
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf.urls import handler404, handler500
+
 
 from django.views.generic import TemplateView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,3 +32,6 @@ urlpatterns = [
     url(r'^selfdata/', include('selfdata.urls', namespace='selfdata')),
     url(r'^brainfood/', include('brainfood.urls', namespace='brainfood'))
 ]
+
+handler404 = TemplateView.as_view(template_name='404.html')
+handler500 = TemplateView.as_view(template_name='500.html')
