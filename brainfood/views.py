@@ -32,8 +32,6 @@ class QuotesToday(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(QuotesToday, self).get_context_data(**kwargs)
-
-
         context['todays_quote'] = Quotes.objects.order_by('?').first()
         print(context['todays_quote'])
         return context

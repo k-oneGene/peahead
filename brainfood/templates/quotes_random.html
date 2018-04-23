@@ -4,7 +4,7 @@
 
 {% block content %}
     {% block bf_title %}<h1><small>Random </small>Quote</h1>{% endblock %}
-    {% block bf_title_sub %}Words that touch your soul{% endblock %}
+{#    {% block bf_title_sub %}Words that touch your soul{% endblock %}#}
 
     {% block bf_content %}
 
@@ -14,7 +14,7 @@
                     <footer class="blockquote-footer">{{ quote.name }}</footer>
                 </blockquote>
 
-                <button class="btn btn-primary" onclick="refreshPage()">Refresh</button>
+                <button class="btn btn-primary" onclick="refreshPage()">Get New Quote</button>
 
             {% else %}
                 <h1><a href='{% url "brainfood:quotes_create" %}'>Add your first quote</a></h1>

@@ -49,6 +49,10 @@ class Selfdata_dashboard(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(Selfdata_dashboard, self).get_context_data(**kwargs)
         context['q_date'] = self.request.GET.get('q_date')
+
+        if context['q_date'] is None:
+            context['q_date'] = '2017-07-12'
+
         context['slept_time'] = Sleep.get_sleep_time(Sleep, context['q_date'])
         context['sleep'] = Sleep.get_sleep_total_hours(Sleep, context['q_date'])
         context['pomodoro'] = Pomodoro.get_pomo(Pomodoro, context['q_date'])
@@ -67,6 +71,10 @@ class Selfdata_dashboard_week(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(Selfdata_dashboard_week, self).get_context_data(**kwargs)
         context['q_week'] = self.request.GET.get('q_week')
+
+        if context['q_week'] is None:
+            context['q_week'] = '2017-W31'
+
         context['slept_time'] = Sleep.get_week_sleep_total_hours_avg(Sleep, context['q_week'])
         context['sleep'] = Sleep.get_week_sleep_total_hours(Sleep, context['q_week'])
         context['pomodoro_total'] = Pomodoro.get_week_total(Pomodoro, context['q_week'])
@@ -94,6 +102,17 @@ class Selfdata_dashboard_week_2(TemplateView):
         context = super(Selfdata_dashboard_week_2, self).get_context_data(**kwargs)
         context['q_week'] = self.request.GET.get('q_week')
         context['q_week_end'] = self.request.GET.get('q_week_end')
+
+        print(context['q_week'])
+        print(context['q_week_end'])
+
+        if context['q_week'] is None:
+            if context['q_week_end'] is None:
+                context['q_week'] = '2017-W42'
+                context['q_week_end'] = '2017-W47'
+
+
+
         context['slept_time'] = Sleep.get_week_sleep_total_hours_avg(Sleep, context['q_week'], context['q_week_end'])
         context['sleep'] = Sleep.get_week_sleep_total_hours(Sleep, context['q_week'], context['q_week_end'])
         context['pomodoro_total'] = Pomodoro.get_week_total(Pomodoro, context['q_week'], context['q_week_end'])
@@ -111,6 +130,11 @@ class Selfdata_dashboard_week_2(TemplateView):
         else:
             context['week'] = ''
             context['week_end'] = ''
+
+        print(context['q_week'])
+        print(context['q_week_end'])
+
+
         return context
 
 
@@ -122,8 +146,19 @@ class Selfdata_dashboard_month(TemplateView):
 
         context['q_month'] = self.request.GET.get('q_month')
         context['q_month_end'] = self.request.GET.get('q_month_end')
+
+        if context['q_month']is None:
+            context['q_month'] = '2017-08'
+
         context['q_week'], context['q_week_end'] = month_to_week(context['q_month'], context['q_month_end'])
-        print(f"month: {context['q_week']}, {context['q_week_end']}")
+        # print(f"month: {context['q_week']}, {context['q_week_end']}")
+
+        # print('selfdata_dashboard_month')
+        # print(context['q_month'])
+        # print(context['q_month_end'])
+
+
+
 
         context['slept_time'] = Sleep.get_week_sleep_total_hours_avg(Sleep, context['q_week'], context['q_week_end'])
         context['sleep'] = Sleep.get_week_sleep_total_hours(Sleep, context['q_week'], context['q_week_end'])
@@ -145,8 +180,14 @@ class Selfdata_dashboard_month_2(TemplateView):
 
         context['q_month'] = self.request.GET.get('q_month')
         context['q_month_end'] = self.request.GET.get('q_month_end')
+
+        if context['q_month'] is None:
+            if context['q_month_end'] is None:
+                context['q_month'] = '2017-05'
+                context['q_month_end'] = '2017-10'
+
         context['q_week'], context['q_week_end'] = month_to_week(context['q_month'], context['q_month_end'])
-        print(f"month_2: {context['q_week']}, {context['q_week_end']}")
+        # print(f"month_2: {context['q_week']}, {context['q_week_end']}")
 
         context['slept_time'] = Sleep.get_week_sleep_total_hours_avg(Sleep, context['q_week'], context['q_week_end'])
         context['sleep'] = Sleep.get_week_sleep_total_hours(Sleep, context['q_week'], context['q_week_end'])

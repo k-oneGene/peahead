@@ -25,8 +25,8 @@
                 <form class="form-inline" method="GET">
                     Between
                     <div class="form-group">
-                        <input type="week" class="form-control" name="q_week" value="{{ q_week }}" required> -
-                        <input type="week" class="form-control" name="q_week_end" value="{{ q_week_end }}" required>
+                        <input type="week" class="form-control" name="q_week" value="{{ q_week }}" required  min="2017-W08" max="2017-W47"> -
+                        <input type="week" class="form-control" name="q_week_end" value="{{ q_week_end }}" required  min="2017-W08" max="2017-W47">
                         <button class="btn btn-primary" type="submit">Find</button>
                     </div>
                 </form>
