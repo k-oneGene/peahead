@@ -2,10 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView, DetailView
 from django.urls import reverse
+from django.http import JsonResponse
+import json
 
 from .models import Mood, Pomodoro, Weight, GoogleFit, Sleep
 
-from selfdata.Report.report_multiples import graph_report, graph_report_one
+from selfdata.Report.report_multiples import graph_report, graph_report_one, graph_get_x_y
 
 from .utils import month_to_week
 from .Report.util_report_config import tbl_name_web_temp_rev
@@ -33,13 +35,31 @@ class Selfdata_detail(TemplateView):
         context = super(Selfdata_detail, self).get_context_data(**kwargs)
         q_start = self.request.GET.get('q_start')
         q_end = self.request.GET.get('q_end')
+
         print(q_start)
         print(q_end)
-        print(kwargs['slug'])
+
+        if q_start is None:
+            print("'it's true'")
+            q_start = '2017-03-01'
+            q_end = '2017-04-20'
+
+        # print(q_start)
+        # print(q_end)
+        # print(kwargs['slug'])
         context['sd_type'] = kwargs['slug'] + '.svg'
         if q_start and q_end:
             tbl_name = tbl_name_web_temp_rev[kwargs['slug']]
-            graph_report_one(q_start, q_end, tbl_name)
+            x_axis, y_axis= graph_get_x_y(q_start, q_end, tbl_name)
+            # context['axises'] = dict(zip(x_axis, y_axis))
+
+            context['g_x_label'] = kwargs['slug'].capitalize()
+            context['x_axis'] = [new_x_axis[0:10] for new_x_axis in x_axis]
+            context['y_axis'] = y_axis
+
+            context['q_start'] = q_start
+            context['q_end'] = q_end
+
         return context
 
 

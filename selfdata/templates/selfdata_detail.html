@@ -7,9 +7,16 @@
 
     <h1> <small>My</small> {{ slug|title }} </h1>
 
+{#    <div class="row">#}
+{#        <div class="col-sm-8 col-lg-8">#}
+{#            <img src="{% static sd_type %}" class="img-responsive img-rounded graphs" alt="{{ sd_type }}"/>#}
+{#        </div>#}
+{#    </div>#}
+{#    <br/>#}
+
     <div class="row">
-        <div class="col-sm-8 col-lg-8">
-            <img src="{% static sd_type %}" class="img-responsive img-rounded graphs" alt="{{ sd_type }}"/>
+        <div class="col-sm-12 col-lg-12">
+            {% include 'snippets/graph_chartjs.html' %}
         </div>
     </div>
     <br/>
@@ -25,5 +32,7 @@
             </div>
         </div>
     </div>
+
+
 
 {% endblock %}

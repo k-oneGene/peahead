@@ -16,16 +16,12 @@ body{
 
     font-family: 'Passion One', cursive;
 
-    /*background-color: #1abc9c; !* Green *!*/
     background-color: #474e5d;
-    /*color: #9d9d9d;*/
-    color: #d6d6d6;
+    /*color: #d6d6d6;*/
+    color: #d4d4d4;
     font-size: medium;
 
     padding-bottom: 20px;
-
-    /*Sans-serif*/
-    /*font-family: 'Open Sans', sans-serif;*/
 }
 
 
@@ -37,6 +33,15 @@ body{
 .main_content > h4 {
     margin-left: 3.7rem;
     margin-right: 0.5rem;
+}
+
+
+input[type="date"], input[type="week"], input[type="month"] {
+    background-color : rgb(242, 242, 242);
+}
+
+a {
+    color: #69ccc9;
 }
 
 

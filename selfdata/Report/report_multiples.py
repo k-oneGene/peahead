@@ -46,6 +46,29 @@ def graph_report_one(start_date, end_date, tbl_name):
     # Draw graph
     util.plot_monthly(df[date_name], df[y_axis], tbl_name, start_date, end_date)
 
+
+# Takes two dates, and table and draws graph.
+def graph_get_x_y(start_date, end_date, tbl_name):
+
+    # Configs to Draw
+    tbl_name = daily_config[tbl_name]['tbl_name']
+    date_name = daily_config[tbl_name]['date_name']
+    y_axis = daily_config[tbl_name]['y_axis']
+
+    # Query data and return result as dataframe.
+    df = util.df_with_query(tbl_name, date_name, start_date, end_date)
+
+    # For cases query returned empty, stop error from terminating app.
+    if df.empty:
+        error = "Table: {}, No record for {} - {}".format(tbl_name, start_date, end_date)
+        print(error)
+        return error
+
+    # Draw graph
+    # util.plot_monthly(df[date_name], df[y_axis], tbl_name, start_date, end_date)
+    return list(df[date_name]), list(df[y_axis])
+
+
 #==============================================================================================
 
 # Report function other will customize on
