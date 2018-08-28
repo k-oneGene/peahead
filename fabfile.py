@@ -64,4 +64,8 @@ def _restart_gunicorn():
 
 
 def _stash_git():
-    run('git stash')
+    try:
+        run('git stash')
+    # This happens if it is first time deploying. There is no git to stash.
+    except:
+        pass
