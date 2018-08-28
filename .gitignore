@@ -104,3 +104,12 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+
+.idea
+.venv
+__pycache__
+*.pyc
+.env
+static_collect
