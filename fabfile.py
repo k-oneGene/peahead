@@ -60,7 +60,7 @@ def _update_database():
 
 
 def _restart_gunicorn():
-    run('sudo systemctl restart gunicorn_test_server.service')
+    run('sudo systemctl restart dashboard.jinis.online.service')
 
 
 def _stash_git():
