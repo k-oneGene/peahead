@@ -29,5 +29,5 @@ scipy
 seaborn
 six==1.11.0
 sklearn
-urllib3==1.23
+urllib3==1.24.2
 whitenoise
