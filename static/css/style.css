@@ -2,11 +2,6 @@
 /* Whole html edit */
 /*******************/
 
-
-h1 {
-    /*color: maroon;*/
-}
-
 h1 small {
     color: rgba(214, 214, 214, 0.58);
 }
@@ -39,7 +34,9 @@ body{
     margin-right: 0.5rem;
 }
 
-
+a {
+    color: #69ccc9;
+}
 
 /*******************/
 /* Footer */
@@ -79,28 +76,16 @@ body{
 /* Home Page */
 /*******************/
 
-
-
 .jumbotron {
     text-align: center;
     /*border-bottom: 1px solid #e5e5e5;*/
     color: #474e5d;
 }
 
-/*.jumbotron img {*/
-    /*max-width: 350px;*/
-    /*max-height: 350px;*/
-    /*width: auto;*/
-    /*height: auto;*/
-/*}*/
-
-
 
 /*******************/
 /* Dashboard boxes */
 /*******************/
-
-
 
 .dash_row {
     height: 200px;
@@ -280,7 +265,6 @@ body{
 .graphs {
     max-height: 500px;
 }
-
 
 
 /*******************/
