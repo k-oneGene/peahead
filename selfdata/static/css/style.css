@@ -1,19 +1,12 @@
-/*******************/
+*****************
 /* Whole html edit */
 /*******************/
-
-
-h1 {
-    /*color: maroon;*/
-}
 
 h1 small {
     color: rgba(214, 214, 214, 0.58);
 }
 
-
-body{
-
+body {
     font-family: 'Passion One', cursive;
 
     background-color: #474e5d;
@@ -23,7 +16,6 @@ body{
 
     padding-bottom: 20px;
 }
-
 
 .main_content {
     margin-left: 3rem;
@@ -35,16 +27,13 @@ body{
     margin-right: 0.5rem;
 }
 
-
 input[type="date"], input[type="week"], input[type="month"] {
     background-color : rgb(242, 242, 242);
 }
 
-a {
-    color: #69ccc9;
-}
-
-
+/* .link-color {
+    color: #69ccc9 !important;
+} */
 
 /*******************/
 /* Footer */
@@ -83,8 +72,6 @@ a {
 /*******************/
 /* Home Page */
 /*******************/
-
-
 
 .jumbotron {
     text-align: center;
@@ -280,7 +267,6 @@ a {
     border-color: #DA532C  ;
     color: #fff;
 }
-
 
 .graphs {
     max-height: 500px;

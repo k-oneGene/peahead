@@ -9,11 +9,8 @@
 {#    <meta name="description" content="">#}
 {#    <meta name="author" content="">#}
     <title>{% block head_title %} DDBoard {% endblock head_title %}</title>
-    {% include 'snippets/css.html' %}
-
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
     <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{% static 'favicons/safari-pinned-tab.svg' %}">
@@ -24,7 +21,10 @@
     <link rel="mask-icon" href="{% static 'favicons/safari-pinned-tab.svg' %}" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
 
-
+    {% include 'snippets/css.html' %}
+    <style>
+        a {color:#69ccc9;}
+    </style>
 </head>
 <body>
 
